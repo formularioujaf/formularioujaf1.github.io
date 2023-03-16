@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Serie De Fibonacci</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            html{font-family: sans-serif; text-align: center}
+            body{display: inline-block; text-align: left}
+            input[type="number"]{text-align: right}
+            footer{font-size: small}
+        </style>        
+    </head>
+    <body>
+        <header>
+            <h1>Serie De Fibonacci</h1>
+        </header>
+        <form id="forma" action="javascript:;">
+            <p>
+                <label accesskey="P">
+                    Serie De Fibonacci:
+                    <input type="text" name="base">
+                    <input type="submit" value="Generar" accesskey="G" >
+                    <input type="reset" value="Limpiar" >
+                </label>
+            </p>
+            <p>
+                <textarea name="resultado" 
+                          rows="12" cols="30"></textarea>   
+            </p>
+        </form>
+        <footer>
+            Copyright 2023 Ricardo Armando Machorro Reyes.            
+        </footer>
+        <script>
+            "use strict";
+            var forma = document.getElementById("forma"),
+            resultado = document.getElementById("resultado");
+            forma.addEventListener("submit", procesa, false);
+            function procesa(){
+             var base = parseInt(forma["base"].value);
+             var a=0;
+             var b=1;
+             var c=0;
+             var res="0\n1\n";
+             for (var i = 0; i < base-2; i++) {
+              c = a + b;
+              res = res + c +"\n";
+              a=b;
+              b=c;
+           }
+           forma["resultado"].value=res;
+         }
+        </script>    
+    </body>
+    
+</html>
